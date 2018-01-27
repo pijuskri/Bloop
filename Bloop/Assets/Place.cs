@@ -39,6 +39,8 @@ public class Place : MonoBehaviour {
 
                 Line = Instantiate(LinePrefab, new Vector3(0, 0, 0), new Quaternion());
                 Line.GetComponent<LineRenderer>().SetPosition(0, LineStart);
+                Line.GetComponent<LineRenderer>().endWidth = 0.02f;
+                Line.GetComponent<LineRenderer>().startWidth = 0.04f;
             }
         }
         if (Input.GetButton("Fire1"))

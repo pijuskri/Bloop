@@ -19,7 +19,11 @@ public class Transmission : MonoBehaviour {
             if (sat != gameObject)
             {
                 RaycastHit hit;
-                if (Physics.Linecast(transform.position, sat.transform.position, out hit, 8))
+                int index = LayerMask.NameToLayer("Sat");
+                int mask = (1 << index);
+                //int mask = (1<<8);
+                print(LayerMask.LayerToName(mask));
+                if (Physics.Linecast(transform.position, sat.transform.position, out hit, mask))
                 {
                     print(hit.transform.gameObject.name);
                     if (hit.transform.tag == "Sattelite")
