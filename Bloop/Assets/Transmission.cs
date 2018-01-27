@@ -21,6 +21,7 @@ public class Transmission : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Linecast(transform.position, sat.transform.position, out hit))
                 {
+                    print(hit.transform.gameObject.name);
                     if (hit.transform.tag == "Sattelite")
                     {
                         Debug.DrawLine(transform.position, sat.transform.position);
