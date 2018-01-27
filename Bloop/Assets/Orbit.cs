@@ -49,7 +49,7 @@ public class Orbit : MonoBehaviour {
         //transform.RotateAround(planet.transform.position, Vector3.down, direction.x * speed);
         //transform.RotateAround(planet.transform.position, Vector3.right, direction.y * speed );
         //transform.RotateAround(planet.transform.position, Vector3.back, direction.z * speed);
-        parent.transform.Rotate(new Vector3(direction.x * speed, direction.z * speed, -direction.y * speed));
+        parent.transform.Rotate(new Vector3(direction.x * speed, -direction.y * speed, direction.z * speed));
     }
 
 }
