@@ -23,7 +23,7 @@ public class LookAtPlanet : MonoBehaviour {
         float convertAnglex=0;
         if (transform.rotation.eulerAngles.x <= 180) convertAnglex = transform.rotation.eulerAngles.x;
         if (transform.rotation.eulerAngles.x > 180) convertAnglex = -(360 - transform.rotation.eulerAngles.x);
-        print(convertAnglex);
+        //print(convertAnglex);
         if (y > 0 && convertAnglex > 70) y = 0;
         if (y < 0 && convertAnglex < -70) y = 0;
         
