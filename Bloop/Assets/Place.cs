@@ -90,11 +90,17 @@ public class Place : MonoBehaviour {
             GameObject temp;
             
             Vector2 direction = new Vector2();
+
             
+
             Vector3 LineStartTemp = Camera.main.WorldToScreenPoint(LineStart);
             Vector3 LineEnd = Camera.main.WorldToScreenPoint(Line.GetComponent<LineRenderer>().GetPosition(1));
 
-            direction = new Vector2( LineEnd.x - LineStartTemp.x, LineEnd.y - LineStartTemp.y);
+           
+
+            //print(multi);
+
+            direction = new Vector3( LineEnd.x - LineStartTemp.x, LineEnd.y - LineStartTemp.y, 0);
             if (Mathf.Abs( direction.x )> Mathf.Abs(direction.y)) direction = direction / Mathf.Abs( direction.x);
             else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) direction = direction / Mathf.Abs(direction.y);
 
@@ -103,6 +109,8 @@ public class Place : MonoBehaviour {
                 temp = Instantiate(sattelite, LineStart, new Quaternion());
                 temp.GetComponent<Orbit>().direction = direction;
                 temp.GetComponent<Orbit>().planet = planet;
+
+
             }
             Destroy(Line);
         }

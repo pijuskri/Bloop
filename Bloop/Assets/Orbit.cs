@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Orbit : MonoBehaviour {
 
-    public Vector2 direction = new Vector2(0,0);
+    public Vector3 direction = new Vector3(0,0,0);
     public GameObject planet;
     float speed=0.1f;
     float initialDistance;
@@ -27,13 +27,21 @@ public class Orbit : MonoBehaviour {
         if (direction.x == 0 && direction.y == 0) Destroy(gameObject);
 
         transform.eulerAngles = new Vector3(0,0,0);*/
-        Quaternion q = Quaternion.FromToRotation(transform.up, planet.transform.up);
+        Quaternion q = Quaternion.FromToRotation(-transform.up, planet.transform.up);
 
-        print(q.eulerAngles);
+        //print(q.eulerAngles);
 
-        transform.RotateAround(planet.transform.position,Vector3.down, direction.x * speed);
-        transform.RotateAround(planet.transform.position, Vector3.right, direction.y * speed);
-        transform.RotateAround(planet.transform.position, Vector3.forward, direction.y * speed);
+        float multi=0;
+        multi = q.eulerAngles.y / 360;
+        //if(q.eulerAngles.y<=180) multi = (180 - q.eulerAngles.y) / 180;
+        //else if (q.eulerAngles.y > 180) multi = (q.eulerAngles.y - 180) / 180;
+
+        print(q.eulerAngles.y  +" "+ multi);
+
+        //transform.RotateAround(planet.transform.position, direction, speed);
+        transform.RotateAround(planet.transform.position, Vector3.down, direction.x * speed);
+        transform.RotateAround(planet.transform.position, Vector3.right, direction.y * speed * (1-multi));
+        transform.RotateAround(planet.transform.position, Vector3.back, direction.y * speed * multi);
     }
 
 }
