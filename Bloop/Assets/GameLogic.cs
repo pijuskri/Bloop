@@ -9,6 +9,8 @@ public class GameLogic : MonoBehaviour {
     [HideInInspector] public int packetsSent = 0;
     [HideInInspector] public int sattelitesLeft = 5;
     public GameObject button;
+    bool gameIsPaused=false;
+    public GameObject pauseMenu;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,8 +19,34 @@ public class GameLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (packetsSent >= packetsRequired) Destroy(button);
+        if (packetsSent >= packetsRequired)
+        {
+            Camera.main.gameObject.GetComponent<LookAtPlanet>().MoveToMoon();
+            packetsRequired = 5;
+            packetsSent = 0;
+            sattelitesLeft = 5;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gameIsPaused)
+            {
+                Resume();
+            }
+            else Pause();
+        }
 	}
+    void Pause()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        gameIsPaused = true;
+    }
+    void Resume()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        gameIsPaused = false;
+    }
     public void CheckSattelites()
     {
         
@@ -36,5 +64,9 @@ public class GameLogic : MonoBehaviour {
                 obvs.GetComponent<Radar>().SendPacket();
             }
         }
+    }
+    public void Close()
+    {
+        Application.Quit();
     }
 }
