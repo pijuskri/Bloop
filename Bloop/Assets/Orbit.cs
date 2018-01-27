@@ -27,7 +27,7 @@ public class Orbit : MonoBehaviour {
         if (direction.x == 0 && direction.y == 0) Destroy(gameObject);
 
         transform.eulerAngles = new Vector3(0,0,0);*/
-        Quaternion q = Quaternion.FromToRotation(transform.forward, planet.transform.forward);
+        Quaternion q = Quaternion.FromToRotation(transform.up, planet.transform.up);
 
         print(q.eulerAngles);
 
