@@ -296,13 +296,14 @@ GameObject:
   - component: {fileID: 1429918890}
   - component: {fileID: 1429918889}
   - component: {fileID: 1429918887}
+  - component: {fileID: 1429918888}
   m_Layer: 0
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1429918887
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 17dca52cc7afcb54f8f82a9012812be6, type: 2}
+  - {fileID: 2100000, guid: 405c16cde6caabc4ba3d248835d1c0ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -337,6 +338,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1429918888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429918886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bfef688813ff24d85a7128df41fef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &1429918889
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -352,7 +364,7 @@ Transform:
   m_GameObject: {fileID: 1429918886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.3, y: 7.3, z: 7.3}
+  m_LocalScale: {x: 7.1, y: 7.1, z: 7.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
