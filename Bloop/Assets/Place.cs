@@ -126,7 +126,9 @@ public class Place : MonoBehaviour {
                     temp.GetComponent<Orbit>().direction = direction;
                     temp.GetComponent<Orbit>().planet = planet;
                     temp.GetComponent<Orbit>().parent = empty;
+                    temp.GetComponent<Transmission>().gameLogic = gameLogic;
                     gameLogic.GetComponent<GameLogic>().sattelitesLeft--;
+                    gameLogic.GetComponent<GameLogic>().CheckSattelites();
                 }
                 Destroy(Line);
             }
