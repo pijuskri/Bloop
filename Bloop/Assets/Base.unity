@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1.06
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f54c34cacc545da42b6037a37f8a8956, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12929314, g: 0.11121064, b: 0.108608834, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be5c7d58d499d84cadd70fe4002a425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sattelite: {fileID: 1467875011903216, guid: f98ff403f7f6d7a4c818fd62c5052d06, type: 2}
+  sattelite: {fileID: 1741250487422008, guid: 5ac3b2f187173cb47b506bff30d5ddeb, type: 2}
   LinePrefab: {fileID: 1440653281024980, guid: ed77b468c6947964e844b8cc0c786e44, type: 2}
   planet: {fileID: 1259755608}
 --- !u!1 &1728550616
