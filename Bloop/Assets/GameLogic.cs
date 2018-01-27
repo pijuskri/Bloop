@@ -25,5 +25,16 @@ public class GameLogic : MonoBehaviour {
         sattelites = GameObject.FindGameObjectsWithTag("Sattelite");
         print("checked");
         print(sattelites.Length);
-    } 
+    }
+    public void SendPacket()
+    {
+        GameObject[] ob = GameObject.FindGameObjectsWithTag("observatory");
+        foreach (var obvs in ob)
+        {
+            if (obvs.GetComponent<Radar>().sender)
+            {
+                obvs.GetComponent<Radar>().SendPacket();
+            }
+        }
+    }
 }
