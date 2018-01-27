@@ -200,7 +200,7 @@ Prefab:
     - target: {fileID: 114346720781220082, guid: 8d95e485ab308464b9b39c4308dce5b9,
         type: 2}
       propertyPath: sender
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4541801897956112, guid: 8d95e485ab308464b9b39c4308dce5b9, type: 2}
       propertyPath: m_LocalScale.x
@@ -341,7 +341,7 @@ Light:
   m_SpotAngle: 36.679016
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -630,7 +630,7 @@ Prefab:
     - target: {fileID: 114346720781220082, guid: 8d95e485ab308464b9b39c4308dce5b9,
         type: 2}
       propertyPath: sender
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114346720781220082, guid: 8d95e485ab308464b9b39c4308dce5b9,
         type: 2}
@@ -645,12 +645,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4541801897956112, guid: 8d95e485ab308464b9b39c4308dce5b9,
     type: 2}
   m_PrefabInternal: {fileID: 859553590}
---- !u!114 &859553594 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114346720781220082, guid: 8d95e485ab308464b9b39c4308dce5b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 859553590}
-  m_Script: {fileID: 11500000, guid: 5a23f709a0b8ce84d93fc6274cdc8b79, type: 3}
 --- !u!1 &1259755608
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,7 +831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 859553594}
+      - m_Target: {fileID: 34016272}
         m_MethodName: SendPacket
         m_Mode: 1
         m_Arguments:
