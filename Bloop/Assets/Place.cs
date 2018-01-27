@@ -9,6 +9,7 @@ public class Place : MonoBehaviour {
     GameObject Line;
     public GameObject planet;
     Vector3 LineStart = new Vector3();
+    bool IsAbleToPlace = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -52,25 +53,54 @@ public class Place : MonoBehaviour {
                 // temp.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
                 Line.GetComponent<LineRenderer>().SetPosition(1, temp);
             }
+
+
+
+            Vector3 LineStartTemp = Camera.main.WorldToScreenPoint(LineStart);
+            Vector3 LineEnd = Camera.main.WorldToScreenPoint(Line.GetComponent<LineRenderer>().GetPosition(1));
+
+            Vector2 direction = new Vector2();
+            direction = new Vector2(LineEnd.x - LineStartTemp.x, LineEnd.y - LineStartTemp.y);
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) direction = direction / Mathf.Abs(direction.x);
+            else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) direction = direction / Mathf.Abs(direction.y);
+
+            GameObject m = new GameObject();
+            Transform tempTransform = m.transform;
+            tempTransform.position = LineStart;
+            tempTransform.LookAt(planet.transform);
+
+            float rotation=0;
+            if (tempTransform.rotation.eulerAngles.x < 180) rotation = tempTransform.rotation.eulerAngles.x;
+            else rotation = 360 - tempTransform.rotation.eulerAngles.x;
+
+            if(Mathf.Abs( direction.y) - Mathf.Abs(direction.x)<-0.4 && rotation>10) IsAbleToPlace = false;
+            else IsAbleToPlace = true;
+            //if (Mathf.Abs( direction.y ) - rotation / 90 < 0.1) Line.GetComponent<LineRenderer>().material.color = Color.green;
+            //else Line.GetComponent<LineRenderer>().material.color = Color.red;
+            //print(direction.y + " " + direction.x);
+
+            if(IsAbleToPlace) Line.GetComponent<LineRenderer>().material.color = Color.green;
+            else Line.GetComponent<LineRenderer>().material.color = Color.red;
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            GameObject temp = Instantiate(sattelite, LineStart, new Quaternion());
+            GameObject temp;
+            
             Vector2 direction = new Vector2();
             
-            LineStart = Camera.main.WorldToScreenPoint(LineStart);
+            Vector3 LineStartTemp = Camera.main.WorldToScreenPoint(LineStart);
             Vector3 LineEnd = Camera.main.WorldToScreenPoint(Line.GetComponent<LineRenderer>().GetPosition(1));
 
-            direction = new Vector2( LineEnd.x - LineStart.x, LineEnd.y - LineStart.y);
-            print(direction);
+            direction = new Vector2( LineEnd.x - LineStartTemp.x, LineEnd.y - LineStartTemp.y);
             if (Mathf.Abs( direction.x )> Mathf.Abs(direction.y)) direction = direction / Mathf.Abs( direction.x);
             else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) direction = direction / Mathf.Abs(direction.y);
-            direction.x *= -1;
-            print(direction);
-            //print(LineStart + " " + LineEnd);
-            direction = new Vector2(direction.y, direction.x);
-            temp.GetComponent<Orbit>().direction = direction;
-            temp.GetComponent<Orbit>().planet = planet;
+
+            if (IsAbleToPlace)
+            {
+                temp = Instantiate(sattelite, LineStart, new Quaternion());
+                temp.GetComponent<Orbit>().direction = direction;
+                temp.GetComponent<Orbit>().planet = planet;
+            }
             Destroy(Line);
         }
     }
