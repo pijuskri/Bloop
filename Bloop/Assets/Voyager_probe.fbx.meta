@@ -1,16 +1,82 @@
 fileFormatVersion: 2
-guid: ea7eac4b3fd1fc443bf63bd8041b765a
+guid: a439e8628210762478238188dc79e676
+timeCreated: 1517061669
+licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: unnamed
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Icosphere
-    7400000: Default Take
-    9500000: //RootNode
+    100000: Circle
+    100002: Cone
+    100004: Cube
+    100006: Cube.001
+    100008: Cube.002
+    100010: Cube.003
+    100012: Cylinder
+    100014: Cylinder.001
+    100016: Cylinder.002
+    100018: Cylinder.003
+    100020: Cylinder.004
+    100022: Cylinder.006
+    100024: //RootNode
+    400000: Circle
+    400002: Cone
+    400004: Cube
+    400006: Cube.001
+    400008: Cube.002
+    400010: Cube.003
+    400012: Cylinder
+    400014: Cylinder.001
+    400016: Cylinder.002
+    400018: Cylinder.003
+    400020: Cylinder.004
+    400022: Cylinder.006
+    400024: //RootNode
+    2100000: glas
+    2100002: lid
+    2100004: jam
+    2100006: frtame
+    2100008: flasj
+    2100010: black
+    2100012: point
+    2100014: No Name
+    2100016: panel
+    2100018: dish
+    2300000: Circle
+    2300002: Cone
+    2300004: Cube
+    2300006: Cube.001
+    2300008: Cube.002
+    2300010: Cube.003
+    2300012: Cylinder
+    2300014: Cylinder.001
+    2300016: Cylinder.002
+    2300018: Cylinder.003
+    2300020: Cylinder.004
+    2300022: Cylinder.006
+    3300000: Circle
+    3300002: Cone
+    3300004: Cube
+    3300006: Cube.001
+    3300008: Cube.002
+    3300010: Cube.003
+    3300012: Cylinder
+    3300014: Cylinder.001
+    3300016: Cylinder.002
+    3300018: Cylinder.003
+    3300020: Cylinder.004
+    3300022: Cylinder.006
+    4300000: Cylinder.006
+    4300002: Cube.003
+    4300004: Cube.001
+    4300006: Cone
+    4300008: Cylinder.004
+    4300010: Cube.002
+    4300012: Cylinder.003
+    4300014: Cube
+    4300016: Cylinder.002
+    4300018: Cylinder.001
+    4300020: Circle
+    4300022: Cylinder
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -85,7 +151,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
