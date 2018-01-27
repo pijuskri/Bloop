@@ -19,7 +19,7 @@ public class Transmission : MonoBehaviour {
             if (sat != gameObject)
             {
                 RaycastHit hit;
-                if (Physics.Linecast(transform.position, sat.transform.position, out hit))
+                if (Physics.Linecast(transform.position, sat.transform.position, out hit, 8))
                 {
                     print(hit.transform.gameObject.name);
                     if (hit.transform.tag == "Sattelite")

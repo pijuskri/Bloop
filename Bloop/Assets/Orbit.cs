@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Orbit : MonoBehaviour {
-
+    [HideInInspector]
     public Vector3 direction = new Vector3(0,0,0);
     public GameObject planet;
     float speed=0.1f;
