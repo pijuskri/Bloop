@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23478722559970408}
   - component: {fileID: 114964153469656104}
   - component: {fileID: 96355857161758044}
+  - component: {fileID: 114485369303751608}
   m_Layer: 0
   m_Name: Sattelite
   m_TagString: Untagged
@@ -172,6 +173,24 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114485369303751608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1467875011903216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d1898316242c542abe266e4333704e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cube: {fileID: 0}
+  center: {fileID: 0}
+  axis: {x: 0, y: 1, z: 0}
+  desiredPosition: {x: 0, y: 0, z: 0}
+  radius: 7
+  radiusSpeed: 0.5
+  rotationSpeed: 80
 --- !u!114 &114964153469656104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d9c5679a469df409a753678a69bc8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  direction: {x: 0, y: 0, z: 0}
   planet: {fileID: 0}
 --- !u!135 &135688098152435140
 SphereCollider:

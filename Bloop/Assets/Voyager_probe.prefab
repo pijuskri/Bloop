@@ -191,9 +191,10 @@ GameObject:
   - component: {fileID: 4040777015020564}
   - component: {fileID: 96222728254820880}
   - component: {fileID: 114805191892262332}
+  - component: {fileID: 114525823102423138}
   m_Layer: 0
   m_Name: Voyager_probe
-  m_TagString: Untagged
+  m_TagString: Sattelite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -999,6 +1000,17 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114525823102423138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1741250487422008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46322a62d8f1d8e4cb09746864adc97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114805191892262332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1010,5 +1022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d9c5679a469df409a753678a69bc8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  direction: {x: 0, y: 0, z: 0}
   planet: {fileID: 0}
+  parent: {fileID: 0}
