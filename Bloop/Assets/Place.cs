@@ -73,7 +73,8 @@ public class Place : MonoBehaviour {
             if (tempTransform.rotation.eulerAngles.x < 180) rotation = tempTransform.rotation.eulerAngles.x;
             else rotation = 360 - tempTransform.rotation.eulerAngles.x;
 
-            if(Mathf.Abs( direction.y) - Mathf.Abs(direction.x)<-0.4 && rotation>10) IsAbleToPlace = false;
+            //if(Mathf.Abs( direction.y) - Mathf.Abs(direction.x)<-0.4 && rotation>10) IsAbleToPlace = false;
+            if(Mathf.Abs( direction.y ) - rotation/80 < 0 && rotation>10) IsAbleToPlace = false;
             else IsAbleToPlace = true;
             //if (Mathf.Abs( direction.y ) - rotation / 90 < 0.1) Line.GetComponent<LineRenderer>().material.color = Color.green;
             //else Line.GetComponent<LineRenderer>().material.color = Color.red;
@@ -81,6 +82,8 @@ public class Place : MonoBehaviour {
 
             if(IsAbleToPlace) Line.GetComponent<LineRenderer>().material.color = Color.green;
             else Line.GetComponent<LineRenderer>().material.color = Color.red;
+
+            Destroy(m);
         }
         if (Input.GetButtonUp("Fire1"))
         {
