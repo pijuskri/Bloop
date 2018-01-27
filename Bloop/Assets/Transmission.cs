@@ -13,18 +13,26 @@ public class Transmission : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        /*GameObject[] other = GameObject.FindGameObjectsWithTag("Sattelite");
+        GameObject[] other = GameObject.FindGameObjectsWithTag("Sattelite");
         foreach (var sat in other)
         {
             if (sat != gameObject)
             {
-                GameObject temp = new GameObject();
+                RaycastHit hit;
+                if (Physics.Linecast(transform.position, sat.transform.position, out hit))
+                {
+                    if (hit.transform.tag == "Sattelite")
+                    {
+                        Debug.DrawLine(transform.position, sat.transform.position);
+                    }
+                }
+                /*GameObject temp = new GameObject();
                 temp.tag = "laser";
                 temp.transform.SetParent(gameObject.transform);
                 temp.AddComponent<LineRenderer>().SetPosition(0, gameObject.transform.position);
-                temp.GetComponent<LineRenderer>().SetPosition(1, sat.transform.position);
+                temp.GetComponent<LineRenderer>().SetPosition(1, sat.transform.position);*/
             }
         }
-        */
+        
 	}
 }
