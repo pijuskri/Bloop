@@ -1,17 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
 guid: 611f4fc409df7114486527c7baa0fe73
-timeCreated: 1517061660
-=======
-guid: a3f30f2eaa4e53e4b849be75634ae345
-timeCreated: 1517059325
->>>>>>> 3f7f2f0e830a69a77ba5024dafba00a93a21d1f9
-=======
-guid: a3f30f2eaa4e53e4b849be75634ae345
-timeCreated: 1517059325
->>>>>>> 3f7f2f0e830a69a77ba5024dafba00a93a21d1f9
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -52,6 +40,7 @@ ModelImporter:
     4300006: Cylinder
     4300008: Circle
     4300010: Cube
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -126,7 +115,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
