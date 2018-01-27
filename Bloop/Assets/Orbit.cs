@@ -6,7 +6,7 @@ public class Orbit : MonoBehaviour {
 
     public Vector2 direction = new Vector2(0,0);
     public GameObject planet;
-    float speed=0.01f;
+    float speed=0.1f;
     float initialDistance;
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,7 @@ public class Orbit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.LookAt(planet.transform);
+        /*transform.LookAt(planet.transform);
         transform.Translate(direction * speed);
         if ((transform.rotation.eulerAngles.x > 89.7 && transform.rotation.eulerAngles.x < 90.3)||(transform.rotation.eulerAngles.x > 269.7 && transform.rotation.eulerAngles.x < 270.4))
         {
@@ -26,7 +26,14 @@ public class Orbit : MonoBehaviour {
 
         if (direction.x == 0 && direction.y == 0) Destroy(gameObject);
 
-        transform.eulerAngles = new Vector3(0,0,0);
+        transform.eulerAngles = new Vector3(0,0,0);*/
+        Quaternion q = Quaternion.FromToRotation(transform.forward, planet.transform.forward);
+
+        print(q.eulerAngles);
+
+        transform.RotateAround(planet.transform.position,Vector3.down, direction.x * speed);
+        transform.RotateAround(planet.transform.position, Vector3.right, direction.y * speed);
+        transform.RotateAround(planet.transform.position, Vector3.forward, direction.y * speed);
     }
 
 }
