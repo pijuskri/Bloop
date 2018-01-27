@@ -6,9 +6,10 @@ public class LookAtPlanet : MonoBehaviour {
 
     float speed = 0.1f;
     public GameObject planet;
+    float initialDistance;
     // Use this for initialization
     void Start() {
-
+        initialDistance = Vector3.Distance(transform.position, planet.transform.position);
     }
 
     // Update is called once per frame
@@ -30,6 +31,6 @@ public class LookAtPlanet : MonoBehaviour {
         transform.Translate(new Vector3(x*speed, y*speed,0));
         //transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.LookAt(planet.transform.position);
-        if (Vector3.Distance(transform.position, planet.transform.position)>8) transform.Translate(Vector3.forward * 0.02f);
+        if (Vector3.Distance(transform.position, planet.transform.position)>initialDistance) transform.Translate(Vector3.forward * 0.02f);
     }
 }
