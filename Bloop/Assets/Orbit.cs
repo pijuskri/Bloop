@@ -52,5 +52,6 @@ public class Orbit : MonoBehaviour {
         //transform.RotateAround(planet.transform.position, Vector3.back, direction.z * speed);
         parent.transform.Rotate(new Vector3(direction.x * speed, -direction.y * speed, direction.z * speed));
     }
+   
 
 }
