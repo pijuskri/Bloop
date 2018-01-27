@@ -74,7 +74,8 @@ public class Place : MonoBehaviour {
             else rotation = 360 - tempTransform.rotation.eulerAngles.x;
 
             //if(Mathf.Abs( direction.y) - Mathf.Abs(direction.x)<-0.4 && rotation>10) IsAbleToPlace = false;
-            if(Mathf.Abs( direction.y ) - rotation/80 < 0 && rotation>10) IsAbleToPlace = false;
+            if(Vector3.Distance(LineStart, Line.GetComponent<LineRenderer>().GetPosition(1))>1f) IsAbleToPlace = false;
+            else if(Vector3.Distance(LineStart, Line.GetComponent<LineRenderer>().GetPosition(1)) < 0.05f) IsAbleToPlace = false;
             else IsAbleToPlace = true;
             //if (Mathf.Abs( direction.y ) - rotation / 90 < 0.1) Line.GetComponent<LineRenderer>().material.color = Color.green;
             //else Line.GetComponent<LineRenderer>().material.color = Color.red;
@@ -89,28 +90,33 @@ public class Place : MonoBehaviour {
         {
             GameObject temp;
             
-            Vector2 direction = new Vector2();
+            Vector3 direction = new Vector3();
 
-            
 
-            Vector3 LineStartTemp = Camera.main.WorldToScreenPoint(LineStart);
+
+            /*Vector3 LineStartTemp = Camera.main.WorldToScreenPoint(LineStart);
             Vector3 LineEnd = Camera.main.WorldToScreenPoint(Line.GetComponent<LineRenderer>().GetPosition(1));
-
-           
-
-            //print(multi);
-
             direction = new Vector3( LineEnd.x - LineStartTemp.x, LineEnd.y - LineStartTemp.y, 0);
             if (Mathf.Abs( direction.x )> Mathf.Abs(direction.y)) direction = direction / Mathf.Abs( direction.x);
-            else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) direction = direction / Mathf.Abs(direction.y);
+            else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) direction = direction / Mathf.Abs(direction.y);*/
+            Vector3 LineEnd = Line.GetComponent<LineRenderer>().GetPosition(1);
+            direction = new Vector3(LineEnd.x - LineStart.x, LineEnd.y - LineStart.y, LineEnd.z - LineStart.z);
+            direction = direction.normalized;
+            if (Mathf.Abs(direction.x) < 0.15f) direction.x = 0;
+            if (Mathf.Abs(direction.y) < 0.15f) direction.y = 0;
+            if (Mathf.Abs(direction.z) < 0.15f) direction.z = 0;
 
+            print(direction);
+
+            //direction = new Vector3(direction.y, direction.x, direction.z);
             if (IsAbleToPlace)
             {
-                temp = Instantiate(sattelite, LineStart, new Quaternion());
+                GameObject empty = new GameObject();
+                empty.transform.position = new Vector3( planet.transform.position.x, planet.transform.position.y, planet.transform.position.z);
+                temp = Instantiate(sattelite, LineStart, Quaternion.Euler(0,0,0), empty.transform);
                 temp.GetComponent<Orbit>().direction = direction;
                 temp.GetComponent<Orbit>().planet = planet;
-
-
+                temp.GetComponent<Orbit>().parent = empty;
             }
             Destroy(Line);
         }
