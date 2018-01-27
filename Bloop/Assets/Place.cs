@@ -62,14 +62,14 @@ public class Place : MonoBehaviour {
             Vector3 LineEnd = Camera.main.WorldToScreenPoint(Line.GetComponent<LineRenderer>().GetPosition(1));
 
             direction = new Vector2( LineEnd.x - LineStart.x, LineEnd.y - LineStart.y);
-            if (direction.x > direction.y) direction = direction / direction.x;
-            else if (direction.x < direction.y) direction = direction / direction.y;
+            print(direction);
+            if (Mathf.Abs( direction.x )> Mathf.Abs(direction.y)) direction = direction / Mathf.Abs( direction.x);
+            else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) direction = direction / Mathf.Abs(direction.y);
             direction.x *= -1;
-
+            print(direction);
             //print(LineStart + " " + LineEnd);
             direction = new Vector2(direction.y, direction.x);
             temp.GetComponent<Orbit>().direction = direction;
-            print(direction);
             temp.GetComponent<Orbit>().planet = planet;
             Destroy(Line);
         }
