@@ -95,6 +95,11 @@ public class GameLogic : MonoBehaviour {
         }
         else if (SceneManager.GetActiveScene().name == "mars")
         {
+            SceneManager.LoadScene("mars");
+            SceneManager.UnloadSceneAsync("jupiter");
+        }
+        else if (SceneManager.GetActiveScene().name == "jupiter")
+        {
 
         }
     }
