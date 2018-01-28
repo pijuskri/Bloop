@@ -23,6 +23,8 @@ ModelImporter:
     2100006: point
     2100008: panel
     2100010: glow
+    2100012: near_panel
+    2100014: panel__SolarPanels_png
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_002

@@ -12,6 +12,7 @@ public class Orbit : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         initialDistance = Vector3.Distance(planet.transform.position, transform.position);
+        //parent.layer = gameObject.layer;
 	}
 	
 	// Update is called once per frame
@@ -51,5 +52,6 @@ public class Orbit : MonoBehaviour {
         //transform.RotateAround(planet.transform.position, Vector3.back, direction.z * speed);
         parent.transform.Rotate(new Vector3(direction.x * speed, -direction.y * speed, direction.z * speed));
     }
+   
 
 }
