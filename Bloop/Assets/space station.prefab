@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114246397165691642}
   m_Layer: 0
   m_Name: space station
-  m_TagString: Untagged
+  m_TagString: observatory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -41,7 +41,14 @@ public class Transmission : MonoBehaviour {
                     {
                         //print(hit.transform.gameObject.name);
 
-                        Debug.DrawLine(transform.position, sat.transform.position, Color.red, 1);
+                        //Debug.DrawLine(transform.position, sat.transform.position, Color.red, 1);
+                        if (gameLogic.GetComponent<LineRenderer>().positionCount == 0)
+                        {
+                            gameLogic.GetComponent<LineRenderer>().positionCount = 1;
+                            gameLogic.GetComponent<LineRenderer>().SetPosition(0, transform.position);
+                        }
+                        gameLogic.GetComponent<LineRenderer>().positionCount++;
+                        gameLogic.GetComponent<LineRenderer>().SetPosition(gameLogic.GetComponent<LineRenderer>().positionCount-1, sat.transform.position);
                         sat.GetComponent<Transmission>().HasPacket = true;
                     }
                     else print(hit.transform.name);
@@ -70,7 +77,13 @@ public class Transmission : MonoBehaviour {
                 {
                     //print(hit.transform.gameObject.name);
 
-                    Debug.DrawLine(transform.position, observ.transform.position, Color.red, 1);
+                    if (gameLogic.GetComponent<LineRenderer>().positionCount == 0)
+                    {
+                        gameLogic.GetComponent<LineRenderer>().positionCount = 1;
+                        gameLogic.GetComponent<LineRenderer>().SetPosition(0, transform.position);
+                    }
+                    gameLogic.GetComponent<LineRenderer>().positionCount++;
+                    gameLogic.GetComponent<LineRenderer>().SetPosition(gameLogic.GetComponent<LineRenderer>().positionCount - 1, observ.transform.position);
                     observ.GetComponent<Radar>().hasPacket = true;
                 }
                 else print("lol+" + hit.transform.name);
