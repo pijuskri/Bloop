@@ -27,16 +27,19 @@ public class Radar : MonoBehaviour {
             GameObject[] other = gameLogic.GetComponent<GameLogic>().sattelites;
             foreach (var sat in other)
             {
-                RaycastHit hit;
-                int index = LayerMask.NameToLayer("Sat");
-                int mask = (1 << 8);
-
-                if (!Physics.Linecast(transform.position, sat.transform.position, out hit, mask))
+                if (Vector3.Distance(sat.transform.position, transform.position) < 20)
                 {
-                    Debug.DrawLine(transform.position, sat.transform.position, Color.red, 1);
-                    sat.GetComponent<Transmission>().HasPacket = true;
+                    RaycastHit hit;
+                    int index = LayerMask.NameToLayer("Sat");
+                    int mask = (1 << 8);
+
+                    if (!Physics.Linecast(transform.position, sat.transform.position, out hit, mask))
+                    {
+                        Debug.DrawLine(transform.position, sat.transform.position, Color.red, 1);
+                        sat.GetComponent<Transmission>().HasPacket = true;
+                    }
+                    else print(hit.transform.name);
                 }
-                else print(hit.transform.name);
             }
             time = 0;
         }

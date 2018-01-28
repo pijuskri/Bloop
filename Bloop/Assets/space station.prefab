@@ -70,6 +70,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4488365443509456}
+  - component: {fileID: 114246397165691642}
   m_Layer: 0
   m_Name: space station
   m_TagString: Untagged
@@ -187,8 +188,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1545368715329370}
   m_LocalRotation: {x: 0.27059805, y: 0.6532815, z: 0.27059805, w: -0.6532815}
-  m_LocalPosition: {x: -2.077, y: 0.174, z: -3.505}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_LocalPosition: {x: 1.5771837, y: 0.36539745, z: -33.927544}
+  m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
   m_Children:
   - {fileID: 4137484416894882}
   - {fileID: 4556451715804898}
@@ -478,3 +479,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1579164645894592}
   m_Mesh: {fileID: 4300002, guid: 9e884279c3cdf1541806323ad707c311, type: 3}
+--- !u!114 &114246397165691642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545368715329370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a23f709a0b8ce84d93fc6274cdc8b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sender: 0
+  hasPacket: 0
+  received: 0
+  gameLogic: {fileID: 0}
