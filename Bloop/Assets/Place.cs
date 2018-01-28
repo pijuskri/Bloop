@@ -9,17 +9,21 @@ public class Place : MonoBehaviour {
     public GameObject gameLogic;
     GameObject Line;
     public GameObject planet;
+    bool isMoon = false;
     Vector3 LineStart = new Vector3();
     bool IsAbleToPlace = false;
 	// Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if( gameLogic.GetComponent<GameLogic>().sattelitesLeft > 0) {
+        isMoon = gameObject.GetComponent<LookAtPlanet>().isMoon;
+        planet = gameObject.GetComponent<LookAtPlanet>().planet;
+
+        if ( gameLogic.GetComponent<GameLogic>().sattelitesLeft > 0) {
             if (Input.GetButtonDown("Fire1"))
             {
                 /*var mousePos = Input.mousePosition;
@@ -82,6 +86,7 @@ public class Place : MonoBehaviour {
                     //if(Mathf.Abs( direction.y) - Mathf.Abs(direction.x)<-0.4 && rotation>10) IsAbleToPlace = false;
                     if (Vector3.Distance(LineStart, Line.GetComponent<LineRenderer>().GetPosition(1)) > 1f) IsAbleToPlace = false;
                     else if (Vector3.Distance(LineStart, Line.GetComponent<LineRenderer>().GetPosition(1)) < 0.05f) IsAbleToPlace = false;
+                    else if (gameLogic.GetComponent<GameLogic>().sattelitesLeft <= 0) IsAbleToPlace = false;
                     else IsAbleToPlace = true;
                     //if (Mathf.Abs( direction.y ) - rotation / 90 < 0.1) Line.GetComponent<LineRenderer>().material.color = Color.green;
                     //else Line.GetComponent<LineRenderer>().material.color = Color.red;
@@ -129,6 +134,7 @@ public class Place : MonoBehaviour {
                     temp.GetComponent<Transmission>().gameLogic = gameLogic;
                     gameLogic.GetComponent<GameLogic>().sattelitesLeft--;
                     gameLogic.GetComponent<GameLogic>().CheckSattelites();
+
                 }
                 Destroy(Line);
             }

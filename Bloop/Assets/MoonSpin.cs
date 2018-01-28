@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoonSpin : MonoBehaviour {
 
     public GameObject earth;
+    public float speed = 0.02f;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,6 +13,6 @@ public class MoonSpin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.RotateAround(earth.transform.position, Vector3.up, 0.02f);
+        transform.RotateAround(earth.transform.position, Vector3.up, speed);
 	}
 }
