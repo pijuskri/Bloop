@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour {
 
@@ -8,24 +9,33 @@ public class GameLogic : MonoBehaviour {
     public int packetsRequired = 5;
     public int packetsSent = 0;
     public int sattelitesLeft = 5;
+    public bool movedMoon = false;
     public GameObject button;
     bool gameIsPaused=false;
     public GameObject pauseMenu;
 	// Use this for initialization
 	void Start () {
-		
+        if (SceneManager.GetActiveScene().name != "Base") movedMoon = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            packetsSent = 100;
+        }
         if (packetsSent >= packetsRequired)
         {
             ChangePlanet();
-            Camera.main.gameObject.GetComponent<LookAtPlanet>().MoveToMoon();
-            packetsRequired = 5;
+            if (!movedMoon) { Camera.main.gameObject.GetComponent<LookAtPlanet>().MoveToMoon(); movedMoon = true; }
+            else
+            {
+                MoveToOtherPlanet();
+            }
+            packetsRequired = 1;
             packetsSent = 0;
-            sattelitesLeft = 5;
+            sattelitesLeft = 10;
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -72,6 +82,19 @@ public class GameLogic : MonoBehaviour {
         {
             Destroy(sat);
             CheckSattelites();
+        }
+    }
+    public void MoveToOtherPlanet()
+    {
+        print(SceneManager.GetActiveScene().name);
+        if (movedMoon && SceneManager.GetActiveScene().name == "Base")
+        {
+            SceneManager.LoadScene("mars");
+            SceneManager.UnloadSceneAsync("Base");
+        }
+        else if (SceneManager.GetActiveScene().name == "mars")
+        {
+
         }
     }
     public void Close()

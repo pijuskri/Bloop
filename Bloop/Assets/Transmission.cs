@@ -27,6 +27,37 @@ public class Transmission : MonoBehaviour {
         {
             if (sat != gameObject)
             {
+                if (Vector3.Distance(sat.transform.position, transform.position) < 20)
+                {
+                    RaycastHit hit;
+                    int index = LayerMask.NameToLayer("Sat");
+                    //int mask = (1 << index);
+                    int mask = (1 << 8);
+                    //print(mask);
+                    //print(LayerMask.LayerToName(mask));
+
+
+                    if (!Physics.Linecast(transform.position, sat.transform.position, out hit, mask))
+                    {
+                        //print(hit.transform.gameObject.name);
+
+                        Debug.DrawLine(transform.position, sat.transform.position, Color.red, 1);
+                        sat.GetComponent<Transmission>().HasPacket = true;
+                    }
+                    else print(hit.transform.name);
+                    /*GameObject temp = new GameObject();
+                    temp.tag = "laser";
+                    temp.transform.SetParent(gameObject.transform);
+                    temp.AddComponent<LineRenderer>().SetPosition(0, gameObject.transform.position);
+                    temp.GetComponent<LineRenderer>().SetPosition(1, sat.transform.position);*/
+                }
+            }
+        }
+        GameObject[] ob = GameObject.FindGameObjectsWithTag("observatory");
+        foreach (var observ in ob)
+        {
+            if (Vector3.Distance(observ.transform.position, transform.position) < 20)
+            {
                 RaycastHit hit;
                 int index = LayerMask.NameToLayer("Sat");
                 //int mask = (1 << index);
@@ -35,45 +66,20 @@ public class Transmission : MonoBehaviour {
                 //print(LayerMask.LayerToName(mask));
 
 
-                if (!Physics.Linecast(transform.position, sat.transform.position, out hit, mask))
+                if (!Physics.Linecast(transform.position, observ.transform.position, out hit, mask))
                 {
                     //print(hit.transform.gameObject.name);
 
-                    Debug.DrawLine(transform.position, sat.transform.position, Color.red, 1);
-                    sat.GetComponent<Transmission>().HasPacket = true;
+                    Debug.DrawLine(transform.position, observ.transform.position, Color.red, 1);
+                    observ.GetComponent<Radar>().hasPacket = true;
                 }
-                else print(hit.transform.name);
+                else print("lol+" + hit.transform.name);
                 /*GameObject temp = new GameObject();
                 temp.tag = "laser";
                 temp.transform.SetParent(gameObject.transform);
                 temp.AddComponent<LineRenderer>().SetPosition(0, gameObject.transform.position);
                 temp.GetComponent<LineRenderer>().SetPosition(1, sat.transform.position);*/
             }
-        }
-        GameObject[] ob = GameObject.FindGameObjectsWithTag("observatory");
-        foreach (var observ in ob)
-        {
-            
-            RaycastHit hit;
-            int index = LayerMask.NameToLayer("Sat");
-            //int mask = (1 << index);
-            int mask = (1 << 8);
-            //print(mask);
-            //print(LayerMask.LayerToName(mask));
-
-
-            if (!Physics.Linecast(transform.position, observ.transform.position, out hit, mask))
-            {
-                //print(hit.transform.gameObject.name);
-
-                Debug.DrawLine(transform.position, observ.transform.position, Color.red, 1);
-                observ.GetComponent<Radar>().hasPacket = true;
-            }else print("lol+" + hit.transform.name);
-            /*GameObject temp = new GameObject();
-            temp.tag = "laser";
-            temp.transform.SetParent(gameObject.transform);
-            temp.AddComponent<LineRenderer>().SetPosition(0, gameObject.transform.position);
-            temp.GetComponent<LineRenderer>().SetPosition(1, sat.transform.position);*/
         }
         HasPacket = false;
         time = 0;
