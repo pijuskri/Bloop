@@ -16,7 +16,8 @@ public class GameLogic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         if (SceneManager.GetActiveScene().name != "Base") movedMoon = true;
-	}
+        gameObject.GetComponent<LineRenderer>().material.color = Color.red;
+    }
 	
 	// Update is called once per frame
 	void Update ()
