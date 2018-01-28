@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour {
 
-    [HideInInspector] public GameObject[] sattelites = new GameObject[0];
-    [HideInInspector] public int packetsRequired = 5;
-    [HideInInspector] public int packetsSent = 0;
-    [HideInInspector] public int sattelitesLeft = 5;
+    public GameObject[] sattelites = new GameObject[0];
+    public int packetsRequired = 5;
+    public int packetsSent = 0;
+    public int sattelitesLeft = 5;
     public GameObject button;
     bool gameIsPaused=false;
     public GameObject pauseMenu;

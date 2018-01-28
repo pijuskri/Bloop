@@ -226,9 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sattelites: []
-  packetsRequired: 1
+  packetsRequired: 4
   packetsSent: 0
-  sattelitesLeft: 20
+  sattelitesLeft: 10
   button: {fileID: 1327835579}
   pauseMenu: {fileID: 277461294}
 --- !u!4 &34016273
@@ -286,7 +286,7 @@ Prefab:
     - target: {fileID: 114346720781220082, guid: 8d95e485ab308464b9b39c4308dce5b9,
         type: 2}
       propertyPath: sender
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4541801897956112, guid: 8d95e485ab308464b9b39c4308dce5b9, type: 2}
       propertyPath: m_LocalScale.x
@@ -1176,7 +1176,7 @@ Prefab:
     - target: {fileID: 114346720781220082, guid: 8d95e485ab308464b9b39c4308dce5b9,
         type: 2}
       propertyPath: sender
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114346720781220082, guid: 8d95e485ab308464b9b39c4308dce5b9,
         type: 2}
