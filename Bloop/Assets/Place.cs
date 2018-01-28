@@ -12,6 +12,8 @@ public class Place : MonoBehaviour {
     bool isMoon = false;
     Vector3 LineStart = new Vector3();
     bool IsAbleToPlace = false;
+    bool deleteLines = false;
+    float time = 0;
 	// Use this for initialization
 	void Start () {
         
@@ -20,6 +22,13 @@ public class Place : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        time += Time.deltaTime;
+        if(time>1 && deleteLines)
+        {
+            deleteLines = false;
+            gameLogic.GetComponent<LineRenderer>().positionCount = 0;
+        }
+
         isMoon = gameObject.GetComponent<LookAtPlanet>().isMoon;
         planet = gameObject.GetComponent<LookAtPlanet>().planet;
 
@@ -134,6 +143,8 @@ public class Place : MonoBehaviour {
                     temp.GetComponent<Transmission>().gameLogic = gameLogic;
                     gameLogic.GetComponent<GameLogic>().sattelitesLeft--;
                     gameLogic.GetComponent<GameLogic>().CheckSattelites();
+                    time = 0;
+                    deleteLines = true;
 
                 }
                 Destroy(Line);
