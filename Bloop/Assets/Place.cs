@@ -9,17 +9,21 @@ public class Place : MonoBehaviour {
     public GameObject gameLogic;
     GameObject Line;
     public GameObject planet;
+    bool isMoon = false;
     Vector3 LineStart = new Vector3();
     bool IsAbleToPlace = false;
 	// Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if( gameLogic.GetComponent<GameLogic>().sattelitesLeft > 0) {
+        isMoon = gameObject.GetComponent<LookAtPlanet>().isMoon;
+        planet = gameObject.GetComponent<LookAtPlanet>().planet;
+
+        if ( gameLogic.GetComponent<GameLogic>().sattelitesLeft > 0) {
             if (Input.GetButtonDown("Fire1"))
             {
                 /*var mousePos = Input.mousePosition;
@@ -129,6 +133,7 @@ public class Place : MonoBehaviour {
                     temp.GetComponent<Transmission>().gameLogic = gameLogic;
                     gameLogic.GetComponent<GameLogic>().sattelitesLeft--;
                     gameLogic.GetComponent<GameLogic>().CheckSattelites();
+
                 }
                 Destroy(Line);
             }

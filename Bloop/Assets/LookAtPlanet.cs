@@ -8,6 +8,7 @@ public class LookAtPlanet : MonoBehaviour {
     public GameObject planet;
     float initialDistance;
     bool moonTransition = false;
+    public bool isMoon = false;
     float time=0;
     public GameObject moon;
     // Use this for initialization
@@ -22,7 +23,8 @@ public class LookAtPlanet : MonoBehaviour {
         if (time > 3 && moonTransition)
         {
             moonTransition = false;
-            transform.parent = moon.transform;
+            //transform.parent = moon.transform;
+            moon.GetComponent<MoonSpin>().speed = 0;
         }
         // transform.LookAt(planet.transform);
         if (moonTransition)
@@ -56,7 +58,7 @@ public class LookAtPlanet : MonoBehaviour {
     {
         moonTransition = true;
         planet = moon;
-
+        isMoon = true;
         time = 0;
         //transform.LookAt(planet.transform);
         initialDistance = 5;

@@ -21,6 +21,7 @@ public class GameLogic : MonoBehaviour {
     {
         if (packetsSent >= packetsRequired)
         {
+            ChangePlanet();
             Camera.main.gameObject.GetComponent<LookAtPlanet>().MoveToMoon();
             packetsRequired = 5;
             packetsSent = 0;
@@ -63,6 +64,14 @@ public class GameLogic : MonoBehaviour {
             {
                 obvs.GetComponent<Radar>().SendPacket();
             }
+        }
+    }
+    public void ChangePlanet()
+    {
+        foreach (var sat in sattelites)
+        {
+            Destroy(sat);
+            CheckSattelites();
         }
     }
     public void Close()
