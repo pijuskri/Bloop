@@ -7,6 +7,7 @@ public class Radar : MonoBehaviour {
 
     public bool sender;
     public bool hasPacket = false;
+    public bool received = false;
     float time=0;
     public GameObject gameLogic;
 	// Use this for initialization
@@ -17,7 +18,7 @@ public class Radar : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         time += Time.deltaTime;
-        if (hasPacket == true && !sender) { gameLogic.GetComponent<GameLogic>().packetsSent++; hasPacket = false; }
+        if (hasPacket && !sender && !received) { gameLogic.GetComponent<GameLogic>().packetsSent++; received = true; }
 	}
     public void SendPacket()
     {
