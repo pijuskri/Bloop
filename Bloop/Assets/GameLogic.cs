@@ -95,12 +95,18 @@ public class GameLogic : MonoBehaviour {
         }
         else if (SceneManager.GetActiveScene().name == "mars")
         {
-            SceneManager.LoadScene("mars");
-            SceneManager.UnloadSceneAsync("jupiter");
+            SceneManager.LoadScene("jupiter");
+            SceneManager.UnloadSceneAsync("mars");
         }
         else if (SceneManager.GetActiveScene().name == "jupiter")
         {
-
+            SceneManager.LoadScene("saturn");
+            SceneManager.UnloadSceneAsync("jupiter");
+        }
+        else if (SceneManager.GetActiveScene().name == "saturn")
+        {
+            SceneManager.LoadScene("void");
+            SceneManager.UnloadSceneAsync("saturn");
         }
     }
     public void Close()
